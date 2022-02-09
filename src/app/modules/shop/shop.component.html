@@ -1,0 +1,61 @@
+<div>
+  <app-header></app-header>
+  <div
+    class="bg-light"
+    style="width: 100vw; height: 100vh; position: fixed; z-index: -1;"
+  ></div>
+  <div class="shop-outer-container bg-light">
+    <div class="shop-side-bar">
+      <div class="shop-side-bar-filter">
+        <app-filter
+          [_filterName]="'Disponibility'"
+          [_filterType]="filters.checkbox"
+          [_filterOptions]="[{name:'In Stock'},{name:'Preorder'}]"
+        ></app-filter>
+      </div>
+      <div class="shop-side-bar-filter">
+        <app-filter
+          [_filterName]="'Price'"
+          [_filterType]="filters.range"
+          [_filterOptions]="[{minValue: 0, maxValue:32}]"
+        ></app-filter>
+      </div>
+      <div class="shop-side-bar-filter">
+        <app-filter
+          [_filterName]="'Categories'"
+          [_filterType]="filters.radio"
+          [_filterOptions]="[{name:'Men\'s Clothing'},{name:'Women\'s Clothing'},{name:'Jewelery'}]"
+        ></app-filter>
+      </div>
+    </div>
+    <div class="shop-inner-container">
+      <div *ngFor="let product of products">
+        <div class="card product-card" style="width: 18rem;">
+          <img
+            class="card-img-top product-card-img"
+            src="{{product.image}}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">
+              {{product.description}}
+            </p>
+            <h4 class="mb-3 text-right">{{product.price}} lei</h4>
+            <div class="d-flex justify-content-between">
+              <a class="d-block btn btn-danger text-white" href="#"
+                >See details</a
+              >
+
+              <a
+                class="d-block btn btn-danger text-white no-decoration"
+                href="#"
+                >Add to cart</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

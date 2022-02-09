@@ -1,0 +1,63 @@
+<div>
+  <app-header></app-header>
+  <main role="main">
+    <div *ngIf="products.length > 0; then showPage else showLoading"></div>
+    <ng-template #showLoading>
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="extras">
+        <div class="gif"></div>
+        <h2 class="text">Loading <span style="color: red;">Sus</span> Shop</h2>
+      </div>
+    </ng-template>
+    <ng-template #showPage>
+      <ngb-carousel #carousel>
+        <ng-template
+          *ngFor="let product of products | slice:1:4; let i = index"
+          ngbSlide
+        >
+          <div class="slide-container">
+            <div class="slide-details">
+              <h2>{{product.title}}</h2>
+              <p>{{product.description}}</p>
+              <button class="btn btn-danger slide-button">
+                View details »
+              </button>
+            </div>
+            <div class="img-block">
+              <img src="{{product.image}}" />
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+      <div class="container-fluid categories bg-light">
+        <div class="row pt-3 mt-2 align-items-center space-around">
+          <div
+            class="col-md-4 p-auto"
+            *ngFor="let category of categories | slice:0:3; let i = index"
+          >
+            <div class="d-flex flex-column align-items-center">
+              <h2>{{category.title}}</h2>
+              <img src="{{category.image}}" class="categories-img"/>
+              <p class="categories-description">
+               {{category.description}}
+              </p>
+              <p>
+                <a class="btn btn-danger slide-button" href="#" role="button"
+                  >View details »</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- /container -->
+  </main>
+</div>

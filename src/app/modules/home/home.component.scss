@@ -1,0 +1,185 @@
+.img-block img {
+  width: 100%;
+  height: 30vh;
+
+  object-fit: contain;
+}
+
+.slide-container {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .slide-details {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @media only screen and (max-width: 768px) {
+      max-width: 100%;
+      align-items: center;
+    }
+
+    h2 {
+      // padding-top: 20px;
+      @media only screen and (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 10px;
+      }
+    }
+
+    p {
+      text-indent: 20px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+
+      @media only screen and (max-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 10px;
+      }
+    }
+    p:first-letter {
+      text-transform: capitalize;
+    }
+
+    .slide-button {
+      width: 150px;
+    }
+  }
+
+  .img-block {
+    padding-right: 100px;
+    @media only screen and (max-width: 768px) {
+      padding-right: 0px;
+      margin-top: 20px;
+    }
+  }
+}
+
+ngb-carousel {
+  @media only screen and (max-width: 768px) {
+    height: 60vh;
+  }
+}
+
+.carousel-control-prev {
+  display: none;
+}
+
+.carousel-control-next {
+  display: none;
+}
+
+.loader {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  margin-top: -175px; /* Negative half of height. */
+  margin-left: -175px; /* Negative half of width. */
+  border-radius: 50%;
+  background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+  animation: animate 1.2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.extras {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  .gif {
+    width: 300px;
+    height: 280px;
+    margin-left: -150px; /* Negative half of width. */
+    margin-top: -140px; /* Negative half of height. */
+
+    background: url(https://64.media.tumblr.com/7898d087981456a594c2313bbd7b93f3/6ffb90d433befcd0-54/s500x750/71c5f7a711e09679332c02b49c6d1b16435a1549.gifv)
+      no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .text {
+    width: 300px;
+    text-align: center;
+    margin-left: -150px;
+    margin-top: 60px;
+    font-family: "Impostograph";
+    font-size: 42px;
+  }
+}
+
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(red, #75dbf1, black);
+}
+
+.loader span:nth-child(1) {
+  filter: blur(5px);
+}
+
+.loader span:nth-child(2) {
+  filter: blur(10px);
+}
+
+.loader span:nth-child(3) {
+  filter: blur(25px);
+}
+
+.loader span:nth-child(4) {
+  filter: blur(50px);
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #f1f1f1;
+  border: solid white 10px;
+  border-radius: 50%;
+}
+
+.categories {
+  p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.categories-img{
+  width:210px;
+  height:280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.categories-description {
+  width:75%;
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 10px;
+  height: 120px;
+}

@@ -1,0 +1,45 @@
+<div style="width: 100vw; height: 100vh; padding-top: 200px;">
+  <form
+    style="
+      margin: auto;
+      width: 30vw;
+      height: 35vh;
+      /* padding: 50px; */
+
+      background-color: lightgrey;
+    "
+    (submit)="sendData()"
+  >
+    <div style="padding: 40px;">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <!-- Two way binding -->
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div>
+  <div *ngIf="_filterType === filters.checkbox">
+    <h4>{{_filterName}}</h4>
+
+    <div *ngFor="let option of _filterOptions" class="form-check">
+      <input class="form-check-input" type="checkbox" value="" />
+      <label class="form-check-label" for="defaultCheck1">
+        {{option.name}}
+      </label>
+    </div>
+  </div>
+  <div class="custom-slider" *ngIf="_filterType === filters.range">
+    <h4>{{_filterName}}</h4>
+    <ngx-slider
+      [(value)]="sliderValue"
+      [(highValue)]="sliderHighValue"
+      [options]="sliderOptions"
+    ></ngx-slider>
+  </div>
+
+  <div *ngIf="_filterType === filters.radio">
+    <h4>{{_filterName}}</h4>
+
+    <div
+      *ngFor="let option of _filterOptions; let i = index"
+      class="form-check"
+    >
+      <input
+        name="radioS"
+        class="form-check-input"
+        type="radio"
+        value="{{i}}"
+        id="{{i}}"
+      />
+      <label class="form-check-label">
+        {{option.name}}
+      </label>
+    </div>
+  </div>
+</div>
